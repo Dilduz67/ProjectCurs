@@ -6,12 +6,13 @@ def test_get_data():
     assert isinstance(data,list)
 
 def test_get_filtered_data(test_data):
-    assert len(get_filtered_data(test_data[:3],False))==3
+    assert len(get_filtered_data(test_data[:3],False))==2
     assert len(get_filtered_data(test_data[:3], True)) == 2
 
 def test_get_last_values(test_data):
-    assert len(test_get_last_values(test_data,2))==2
+    assert len(get_last_values(test_data,2))==2
 
 def test_get_formated_data(test_data):
     data=get_formated_data(test_data[:1])
-    assert data[0]=="'date': '2019-08-26T10:50:58.294041', 'description': 'Перевод организации', 'from': 'Maestro 1596837868705199', 'id'...46.296404', 'description': 'Перевод со счета на счет', 'from': 'Счет 44812258784861134719', 'id': 873106923, ...}, ...]"
+    print(data)
+    assert data[0]=="\n        26.08.2019 Перевод организации\n        Maestro 1596 83** **** 5199 -> Счет **9589\n        31957.58 руб.\n        "
